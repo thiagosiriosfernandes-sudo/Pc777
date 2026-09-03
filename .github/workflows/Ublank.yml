@@ -1,0 +1,24 @@
+name: Minha VM
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar informações da VM
+        run: |
+          echo "=== MINHA VM ==="
+          echo "Sistema:"
+          uname -a
+          echo ""
+          echo "CPU:"
+          nproc
+          echo ""
+          echo "RAM:"
+          free -h
+          echo ""
+          echo "Disco:"
+          df -h
