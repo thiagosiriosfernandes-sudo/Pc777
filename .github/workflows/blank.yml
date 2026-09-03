@@ -1,0 +1,30 @@
+name: Verificar Gaming VM
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Verificar arquivos
+        run: |
+          echo "=============================="
+          echo "     GAMING VM - WINDOWS 10"
+          echo "=============================="
+          echo "RAM: 32 GB"
+          echo "CPU: 8 threads"
+          echo "Verificando arquivos..."
+
+          test -f README.md
+          test -f start-vm.sh
+
+          echo "Projeto OK!"
